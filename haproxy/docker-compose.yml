@@ -1,0 +1,18 @@
+version: '2'
+services:
+   haproxy:
+     build: .
+     image: haproxy
+     container_name: hiveMQ
+     hostname: hiveMQ
+     ports:
+     - "1883:1883"
+     networks:
+       - bmw_network
+       - mqtt_network
+networks:  
+  bmw_network:
+      external: true
+  mqtt_network:
+      external: true
+       

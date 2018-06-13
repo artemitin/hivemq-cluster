@@ -1,0 +1,24 @@
+version: '2'
+services:
+    hivemq-node-1:
+        build: .
+        image: hivemq:3.1.5
+        container_name: hivemq-node-1
+        ports:
+            - "11883:1883"
+        networks:
+            - mqtt_network
+        
+    hivemq-node-2:
+        build: .
+        image: hivemq:3.1.5
+        container_name: hivemq-node-2
+        ports:
+            - "11884:1883"
+        networks:
+            - mqtt_network
+networks:    
+    mqtt_network:
+        external: true
+       
+        
